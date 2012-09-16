@@ -1,0 +1,45 @@
+﻿<HSPSSolution Title="HEDCo Correspondence System" Version="1.0" xmlns="clr-namespace:HSPS;assembly=HSPS" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <HSPSSolution.ActionDefinitions>
+    <x:Type Type="BuildListAction" x:Key="BuildListAction" />
+  </HSPSSolution.ActionDefinitions>
+  <HSPSSolution.Steps>
+    <Step Title="Step 1">
+      <Step.Actions>
+        <BuildListAction Description="Correpondence System" DisplayInQuickLaunch="False" ListTitle="CC:To" Output="$ToCCList" />
+      </Step.Actions>
+    </Step>
+    <Step Title="Step 2">
+      <Step.Actions>
+        <BuildListAction Description="Correpondence System" DisplayInQuickLaunch="False" ListTitle="Company Database" Output="$CompanyDatabaseList" />
+        <BuildListAction Description="Correpondence System" DisplayInQuickLaunch="False" ListTitle="From Name DataBase" Output="$FromNameDatabaseList">
+          <BuildListAction.Columns>
+            <Column AddToDefaultView="True" FieldType="Lookup" IsRequired="False">
+              <Column.Properties>
+                <Property Name="Title" Value="Company" />
+                <Property Name="LookupList" Value="$CompanyDatabaseList" />
+                <Property Name="LookupField" Value="Title" />
+              </Column.Properties>
+            </Column>
+            <Column AddToDefaultView="True" FieldType="Text" IsRequired="False">
+              <Column.Properties>
+                <Property Name="Title" Value="Company Text" />
+                <Property Name="Description" Value="Set by wf." />
+              </Column.Properties>
+            </Column>
+            <Column AddToDefaultView="True" FieldType="Calculated" IsRequired="False">
+              <Column.Properties>
+                <Property Name="Title" Value="Full Title" />
+                <Property Name="Formula" Value="=Title&amp;&quot;; &quot;&amp;[Company Text]" />
+              </Column.Properties>
+            </Column>
+          </BuildListAction.Columns>
+        </BuildListAction>
+      </Step.Actions>
+    </Step>
+  </HSPSSolution.Steps>
+  <HSPSSolution.Variables>
+    <Variable Value="{x:Null}" x:Key="$CompanyDatabaseList" Name="$CompanyDatabaseList" Type="s:Guid" />
+    <Variable Value="{x:Null}" x:Key="$ToCCList" Name="$ToCCList" Type="s:Guid" />
+    <Variable Value="{x:Null}" x:Key="$FromNameDatabaseList" Name="$FromNameDatabaseList" Type="s:Guid" />
+  </HSPSSolution.Variables>
+</HSPSSolution>
