@@ -54,7 +54,10 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.SharePoint, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SharePoint, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Common Files\Microsoft Shared\Web Server Extensions\12\ISAPI\Microsoft.SharePoint.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -71,18 +74,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuildListAction.cs" />
+    <Compile Include="CalculatedColumn.cs" />
+    <Compile Include="ChoiceColumn.cs" />
     <Compile Include="Column.cs" />
+    <Compile Include="CopyFilesAction.cs" />
+    <Compile Include="DateTimeColumn.cs" />
+    <Compile Include="LookupColumn.cs" />
+    <Compile Include="MultipleLinesOfTextColumn.cs" />
+    <Compile Include="NumberColumn.cs" />
+    <Compile Include="PeopleColumn.cs" />
     <Compile Include="Property.cs" />
     <Compile Include="IAction.cs" />
     <Compile Include="HSPSSolution.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services.cs" />
+    <Compile Include="SetLisFormAction.cs" />
+    <Compile Include="SingleLineOfTextColumn.cs" />
     <Compile Include="Step.cs" />
     <Compile Include="Variable.cs" />
+    <Compile Include="YesNoColumn.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

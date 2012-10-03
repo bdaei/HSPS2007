@@ -1,0 +1,10 @@
+HSPS is command-line tool that can be used to deploy SharePoint 2007 content such as
+lists, libraries, pages and workflows. It is a better tool than SharePoint designer
+Personal Web Packages because once you have applied a pckage to SharePoint site, there
+is no way you can import another package in site.
+
+You can define your lists and other contents using XAML and HSPS will deploy it for you.
+So basically it is a define once and deploy multiple times process.
+
+There is sample package in a folder called "Sample Package" in bin\debug folder that 
+you can use.
