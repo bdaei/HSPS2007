@@ -1,0 +1,301 @@
+﻿<HSPSSolution Title="HEDCo Correspondence System" Version="1.0" xmlns:sys="clr-namespace:System;assembly=mscorlib"  xmlns="clr-namespace:HSPS;assembly=HSPS" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <HSPSSolution.ActionDefinitions>
+        <x:Type Type="BuildListAction" x:Key="BuildListAction" />
+    </HSPSSolution.ActionDefinitions>
+    <HSPSSolution.Steps>
+        <Step Title="Step 1">
+            <Step.Actions>
+                <BuildListAction Description="Correpondence System" DisplayInQuickLaunch="False" ListTitle="Company Database" Output="$CompanyDatabaseList" />
+                <BuildListAction Description="Correpondence System" DisplayInQuickLaunch="False" ListTitle="CC:To" Output="$ToCCList" />
+                <BuildListAction Description="Correpondence System" DisplayInQuickLaunch="False" ListTitle="From Name DataBase" Output="$FromNameDatabaseList">
+                    <BuildListAction.Columns>
+                        <LookupColumn AddToDefaultView="True" IsRequired="False" Title="Company" LookupList="$CompanyDatabaseList" LookupField="Title" />
+                        <SingleLineOfTextColumn AddToDefaultView="True" IsRequired="False" Title="Company Text" Description="Set by wf." />
+                        <CalculatedColumn AddToDefaultView="True" IsRequired="False" Title="Full Title" Formula="=Title&amp;&quot;; &quot;&amp;[Company Text]" />
+                    </BuildListAction.Columns>
+                </BuildListAction>
+                <BuildListAction Description="Correpondence System" DisplayInQuickLaunch="False" ListTitle="Hamesh from" Output="$HameshFromList" />
+                <BuildListAction Description="Correpondence System" DisplayInQuickLaunch="False" ListTitle="Hamesh to" Output="$HameshToList" />
+                <BuildListAction Description="Correpondence System" DisplayInQuickLaunch="False" ListTitle="Projects List" Output="$ProjectsList" />
+                <BuildListAction Description="Correpondence System" DisplayInQuickLaunch="False" ListTitle="To Name DataBase" Output="$ToNameDatabaseList">
+                    <BuildListAction.Columns>
+                        <LookupColumn AddToDefaultView="True" IsRequired="False" Title="Company" LookupList="$CompanyDatabaseList" />
+                        <SingleLineOfTextColumn AddToDefaultView="True" IsRequired="False" Title="Company Text" Description="Set by wf." />
+                        <CalculatedColumn AddToDefaultView="True" IsRequired="False" Title="Full Title" Formula="=Title&amp;&quot;; &quot;&amp;[Company Text]"/>
+                    </BuildListAction.Columns>
+                </BuildListAction>
+                <BuildListAction Description="Correpondence System" DisplayInQuickLaunch="False" ListTitle="Unit/Grouping" Output="$UnitGroupingList" />
+                <BuildListAction Description="Correpondence System" DisplayInQuickLaunch="True" ListTitle="Correpondences" Output="$CorrepondencesList">
+                    <BuildListAction.Columns>
+                        <MultipleLinesOfTextColumn AddToDefaultView="False" IsRequired="False" IsRichText="False" Title="All Users" />
+                        <LookupColumn AddToDefaultView="True" IsRequired="False" Title="CC:to" LookupList="$ToCCList" />
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="DC">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                                <sys:String>Nosrati.Afsaneh;</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <SingleLineOfTextColumn AddToDefaultView="True" IsRequired="False" Title="Department Finder" Description="set by W.F." />
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="DPD">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="ED">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="EL">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                                <sys:String>Completed</sys:String>
+                                <sys:String>Expediting</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <NumberColumn AddToDefaultView="False" IsRequired="False" Title="Expediting Duration (Day)" />
+                        <YesNoColumn AddToDefaultView="False" IsRequired="False" Title="Expediting is Required" DefaultValue="False" />
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="Expediting Status">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <SingleLineOfTextColumn AddToDefaultView="True" IsRequired="False" Title="From Company" />
+                        <LookupColumn AddToDefaultView="True" IsRequired="False" Title="From Name" LookupList="$FromNameDatabaseList" LookupField="Full Title" />
+                        <DateTimeColumn AddToDefaultView="False" IsRequired="False" Title="Hamesh Date" />
+                        <LookupColumn AddToDefaultView="False" IsRequired="False" LookupList="$HameshFromList" Title="Hamesh from" />
+                        <LookupColumn AddToDefaultView="False" IsRequired="False" LookupList="$HameshToList" Title="Hamesh to" />
+                        <SingleLineOfTextColumn AddToDefaultView="False" IsRequired="False" Title="Hard Copy Filing No"/>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="HSE">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="Importance">
+                            <ChoiceColumn.Choices>
+                                <sys:String>Normal</sys:String>
+                                <sys:String>High</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="IN">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <SingleLineOfTextColumn AddToDefaultView="False" IsRequired="False" Title="Key Words" />
+                        <SingleLineOfTextColumn AddToDefaultView="False" IsRequired="False" Title="Key Words 2" />
+                        <SingleLineOfTextColumn AddToDefaultView="False" IsRequired="False" Title="Key Words 3" />
+                        <SingleLineOfTextColumn AddToDefaultView="False" IsRequired="False" Title="Key Words 4" />
+                        <SingleLineOfTextColumn AddToDefaultView="False" IsRequired="False" Title="Key Words 5" />
+                        <DateTimeColumn AddToDefaultView="False" IsRequired="False" Title="Letter Date" />
+                        <SingleLineOfTextColumn AddToDefaultView="True" IsRequired="False" Title="Letter NO" />
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="Letter Status">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                                <sys:String>Sent</sys:String>
+                                <sys:String>Deleted</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="Letter Type">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                                <sys:String>Letter</sys:String>
+                                <sys:String>Mom</sys:String>
+                                <sys:String>Transmittal</sys:String>
+                                <sys:String>Document</sys:String>
+                                <sys:String>Other</sys:String>
+                                <sys:String>Comment Sheet</sys:String>
+                                <sys:String>End Conclusion Sheet</sys:String>
+                                <sys:String>Reply Sheet</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <SingleLineOfTextColumn AddToDefaultView="True" IsRequired="False" Title="LetterFileName" Description="Dummy field for control original letter" />
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="MD">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="PC">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="PD">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="PEG">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="PEL">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="PEZ">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="PI">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="PMG">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="PML">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="PMZ">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="PN">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="PQ">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="PR">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="QC">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="RE">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="ST">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="VDC">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <LookupColumn AddToDefaultView="False" IsRequired="False" Title="Project" LookupList="$ProjectsList" />
+                        <DateTimeColumn AddToDefaultView="False" IsRequired="False" Title="Reference Date" />
+                        <DateTimeColumn AddToDefaultView="False" IsRequired="False" Title="Reference Date2" />
+                        <DateTimeColumn AddToDefaultView="False" IsRequired="False" Title="Reference Date3" />
+                        <DateTimeColumn AddToDefaultView="False" IsRequired="False" Title="Reference Date4" />
+                        <DateTimeColumn AddToDefaultView="False" IsRequired="False" Title="Reference Date5" />
+                        <SingleLineOfTextColumn AddToDefaultView="False" IsRequired="False" Title="Reference NO" />
+                        <SingleLineOfTextColumn AddToDefaultView="False" IsRequired="False" Title="Reference NO2" />
+                        <SingleLineOfTextColumn AddToDefaultView="False" IsRequired="False" Title="Reference NO3" />
+                        <SingleLineOfTextColumn AddToDefaultView="False" IsRequired="False" Title="Reference NO4" />
+                        <SingleLineOfTextColumn AddToDefaultView="False" IsRequired="False" Title="Reference NO5" />
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="Reference Type">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                                <sys:String>Letter</sys:String>
+                                <sys:String>Mom</sys:String>
+                                <sys:String>Transmittal</sys:String>
+                                <sys:String>Document</sys:String>
+                                <sys:String>Other</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="Reference Type2">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                                <sys:String>Letter</sys:String>
+                                <sys:String>Mom</sys:String>
+                                <sys:String>Transmittal</sys:String>
+                                <sys:String>Document</sys:String>
+                                <sys:String>Other</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="Reference Type3">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                                <sys:String>Letter</sys:String>
+                                <sys:String>Mom</sys:String>
+                                <sys:String>Transmittal</sys:String>
+                                <sys:String>Document</sys:String>
+                                <sys:String>Other</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="Reference Type4">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                                <sys:String>Letter</sys:String>
+                                <sys:String>Mom</sys:String>
+                                <sys:String>Transmittal</sys:String>
+                                <sys:String>Document</sys:String>
+                                <sys:String>Other</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="Reference Type5">
+                            <ChoiceColumn.Choices>
+                                <sys:String>-</sys:String>
+                                <sys:String>Letter</sys:String>
+                                <sys:String>Mom</sys:String>
+                                <sys:String>Transmittal</sys:String>
+                                <sys:String>Document</sys:String>
+                                <sys:String>Other</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <MultipleLinesOfTextColumn AddToDefaultView="False" IsRequired="False" Title="Remark"/>
+                        <DateTimeColumn AddToDefaultView="False" IsRequired="False" Title="Replied Letter Date" />
+                        <SingleLineOfTextColumn AddToDefaultView="False" IsRequired="False" Title="Replied Letter NO"/>
+                        <SingleLineOfTextColumn AddToDefaultView="False" IsRequired="False" Title="RepliedFileNames" Description="Dummy field for control Replied letters" />
+                        <NumberColumn AddToDefaultView="False" IsRequired="False" Title="Reply Duration (Day)" />
+                        <NumberColumn AddToDefaultView="False" IsRequired="False" Title="Reply Hard Copy Filing NO" />
+                        <ChoiceColumn AddToDefaultView="False" IsRequired="False" Title="Reply Importance">
+                            <ChoiceColumn.Choices>
+                                <sys:String>Normal</sys:String>
+                                <sys:String>High</sys:String>
+                            </ChoiceColumn.Choices>
+                        </ChoiceColumn>
+                        <YesNoColumn AddToDefaultView="False" IsRequired="False" Title="Reply is Required" DefaultValue="False"/>
+                        <LookupColumn AddToDefaultView="False" IsRequired="False" Title="REQ NO" LookupField="Name." LookupList="HEDCo. Master Document" IsListName="True" />
+                        <PeopleColumn AddToDefaultView="False" IsRequired="False" SelectionMode="PeopleOnly" AllowMultipleValues="False" Title="Responsible"/>
+                        <YesNoColumn AddToDefaultView="False" IsRequired="False" Title="SkipFirstEdit" />
+                        <SingleLineOfTextColumn AddToDefaultView="False" IsRequired="False" Title="Subject" />
+                        <SingleLineOfTextColumn AddToDefaultView="False" Title="To Company" IsRequired="False" />
+                        <LookupColumn AddToDefaultView="False" Title="To Name" IsRequired="False" LookupList="$ToNameDatabaseList" LookupField="Full Title" />
+                        <SingleLineOfTextColumn AddToDefaultView="False" Title="UniqeNO" IsRequired="False" />
+                        <LookupColumn AddToDefaultView="False" Title="Unit/Grouping" IsRequired="False" LookupList="$UnitGroupingList" />
+                        <CalculatedColumn AddToDefaultView="False" Title="Expediting Date" IsRequired="False" Formula="=Created+[Expediting Duration (Day)]" />
+                        <CalculatedColumn AddToDefaultView="False" Title="Replay Date" IsRequired="False" Formula="=Created+[Reply Duration (Day)]" />
+                        <CalculatedColumn AddToDefaultView="False" Title="TitleWithLink" IsRequired="False" Formula="=&quot;http://www.hedcoint.com/projects/_vti_bin/owssvr.dll?CS=109&amp;Using=_layouts/query.iqy&amp;List=%7B8B4D5337%2D8D3B%2D4372%2D8CA5%2D85D1F94B802C%7D&amp;View=%7B644BCAAB%2D7078%2D4A2E%2D966E%2D3512A2174762%7D&amp;CacheControl=1&quot;" />
+                    </BuildListAction.Columns>
+                </BuildListAction>
+                <CopyFilesAction />
+                <SetLisFormAction DisplayFormUrl="Lists/Correpondences/DispFormTransition3.aspx" EditFormUrl="Lists/Correpondences/EditFormTransition3.aspx" NewFormUrl="Lists/Correpondences/NewFormTransition3.aspx" ListId="$CorrepondencesList" />
+            </Step.Actions>
+        </Step>
+    </HSPSSolution.Steps>
+    <HSPSSolution.Variables>
+        <Variable Value="{x:Null}" x:Key="$CompanyDatabaseList" Name="$CompanyDatabaseList" Type="s:Guid" />
+        <Variable Value="{x:Null}" x:Key="$ToCCList" Name="$ToCCList" Type="s:Guid" />
+        <Variable Value="{x:Null}" x:Key="$FromNameDatabaseList" Name="$FromNameDatabaseList" Type="s:Guid" />
+        <Variable Value="{x:Null}" x:Key="$HameshFromList" Name="$HameshFromList" Type="s:Guid" />
+        <Variable Value="{x:Null}" x:Key="$HameshToList" Name="$HameshToList" Type="s:Guid" />
+        <Variable Value="{x:Null}" x:Key="$ProjectsList" Name="$ProjectsList" Type="s:Guid" />
+        <Variable Value="{x:Null}" x:Key="$ToNameDatabaseList" Name="$ToNameDatabaseList" Type="s:Guid" />
+        <Variable Value="{x:Null}" x:Key="$UnitGroupingList" Name="$UnitGroupingList" Type="s:Guid" />
+        <Variable Value="{x:Null}" x:Key="$CorrepondencesList" Name="$CorrepondencesList" Type="s:Guid" />
+    </HSPSSolution.Variables>
+</HSPSSolution>
